@@ -25,14 +25,18 @@ public class Lista {
     }
 
     public boolean buscaElemento(int i) {
-       int aux = i;
-       do {
-           if(cabeca.getDados() == aux){
-               return true;
-           }
-       }
-       while (cabeca.getDados() != aux);
-       return false;
+        if (cabeca == null) {
+            return false;
+        }
+        No atual = cabeca;
+        do {
+            if (atual.getDados() == i) {
+                return true;
+            }
+            atual = atual.getProx();
+        } while (atual != null); 
+    
+        return false;
     }
 
     public Object buscaIndice(int i) {
