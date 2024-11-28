@@ -12,16 +12,8 @@ public class Lista {
 
     public void insereInicio(int i) {
         No novaCabeca = new No(i);
-        if(tamanho == 0) {
-            cabeca = novaCabeca;
-            cabeca.setProx(null);
-            tamanho++;
-        }
-        else{
-            cabeca.setProx(cabeca);
-            cabeca = novaCabeca;
-            tamanho++;
-        }
+        cabeca.setProx(cabeca);
+        cabeca = novaCabeca;
     }
 
     public boolean buscaElemento(int i) {
