@@ -1,20 +1,38 @@
 package estruturaDeDados;
 
 public class Lista {
+    private No cabeca;
+    private int tamanho;
+
 
     public Lista() {
-        // TODO Auto-generated constructor stub
-        throw new UnsupportedOperationException("Unimplemented constructor 'ListaCircular'");
+        this.cabeca = null;
+        this.tamanho = 0;
     }
 
     public void insereInicio(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insereInicio'");
+        No novaCabeca = new No(i);
+        if(tamanho == 0) {
+            cabeca = novaCabeca;
+            cabeca.setProx(null);
+            tamanho++;
+        }
+        else{
+            cabeca.setProx(cabeca);
+            cabeca = novaCabeca;
+            tamanho++;
+        }
     }
 
     public boolean buscaElemento(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscaElemento'");
+       int aux = i;
+       do {
+           if(cabeca.getDados() == aux){
+               return true;
+           }
+       }
+       while (cabeca.getDados() != aux);
+       return false;
     }
 
     public Object buscaIndice(int i) {
@@ -23,8 +41,9 @@ public class Lista {
     }
 
     public void insereFim(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insereFim'");
+        No novaCabeca = new No(i);
+        cabeca.setProx(novaCabeca);
+        tamanho++;
     }
 
     public void removeInicio() {
