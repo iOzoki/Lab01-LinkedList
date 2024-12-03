@@ -1,4 +1,5 @@
 package test;
+package estruturaDeDados;
 
 
 import static org.junit.Assert.assertEquals;

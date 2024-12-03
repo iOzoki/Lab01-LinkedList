@@ -2,64 +2,128 @@ package estruturaDeDados;
 
 public class Lista {
     private No cabeca;
-    private int tamanho;
-
+    private int tamanho = 0;
 
     public Lista() {
         this.cabeca = null;
-        this.tamanho = 0;
+    }
+
+    public int getTamanho() {
+        return tamanho;
     }
 
     public void insereInicio(int i) {
         No novaCabeca = new No(i);
-        cabeca.setProx(cabeca);
-        cabeca = novaCabeca;
+        novaCabeca.setProx(this.cabeca);
+        this.cabeca = novaCabeca;
+        this.tamanho++;
     }
 
     public boolean buscaElemento(int i) {
-        if (cabeca == null) {
-            return false;
-        }
         No atual = cabeca;
-        do {
+        while (atual != null) {
             if (atual.getDados() == i) {
                 return true;
             }
             atual = atual.getProx();
-        } while (atual != null); 
-    
+        }
         return false;
     }
 
-    public Object buscaIndice(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscaIndice'");
+    public int buscaIndice(int indice) {
+        if (indice < 0 || indice >= tamanho) {
+            throw new IndexOutOfBoundsException("Índice inválido.");
+        }
+
+        No atual = cabeca;
+        int contador = 0;
+        while (atual != null) {
+            if (contador == indice) {
+                return atual.getDados();
+            }
+            atual = atual.getProx();
+            contador++;
+        }
+        return -1; // Este ponto não será alcançado devido à verificação de índice.
     }
 
     public void insereFim(int i) {
-        No novaCabeca = new No(i);
-        cabeca.setProx(novaCabeca);
+        No novoNo = new No(i);
+
+        if (cabeca == null) {
+            cabeca = novoNo;
+        } else {
+            No atual = cabeca;
+            while (atual.getProx() != null) {
+                atual = atual.getProx();
+            }
+            atual.setProx(novoNo);
+        }
         tamanho++;
     }
 
     public void removeInicio() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeInicio'");
+        if (cabeca == null) {
+            throw new IllegalStateException("A lista está vazia.");
+        }
+
+        cabeca = cabeca.getProx();
+        tamanho--;
     }
 
     public void removeFim() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeFim'");
+        if (cabeca == null) {
+            throw new IllegalStateException("A lista está vazia.");
+        }
+
+        if (cabeca.getProx() == null) {
+            cabeca = null;
+        } else {
+            No atual = cabeca;
+            while (atual.getProx().getProx() != null) {
+                atual = atual.getProx();
+            }
+            atual.setProx(null);
+        }
+        tamanho--;
     }
 
-    public void removeIndice(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeIndice'");
+    public void removeIndice(int indice) {
+        if (indice < 0 || indice >= tamanho) {
+            throw new IndexOutOfBoundsException("Índice inválido.");
+        }
+
+        if (indice == 0) {
+            removeInicio();
+        } else {
+            No atual = cabeca;
+            for (int i = 0; i < indice - 1; i++) {
+                atual = atual.getProx();
+            }
+            atual.setProx(atual.getProx().getProx());
+            tamanho--;
+        }
     }
 
-    public void insereElementoPosicao(int i, int j) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insereElementoPosicao'");
+    public void insereElementoPosicao(int i, int posicao) {
+        if (posicao < 0 || posicao > tamanho) {
+            throw new IndexOutOfBoundsException("Posição inválida.");
+        }
+
+        if (posicao == 0) {
+            insereInicio(i);
+        } else if (posicao == tamanho) {
+            insereFim(i);
+        } else {
+            No novoNo = new No(i);
+            No atual = cabeca;
+
+            for (int j = 0; j < posicao - 1; j++) {
+                atual = atual.getProx();
+            }
+            novoNo.setProx(atual.getProx());
+            atual.setProx(novoNo);
+            tamanho++;
+        }
     }
-    
 }
