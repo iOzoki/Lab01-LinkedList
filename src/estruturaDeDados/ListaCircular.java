@@ -1,3 +1,5 @@
+package estruturaDeDados;
+
 public class ListaCircular {
     private No cabeca;
     private No cauda;
@@ -9,20 +11,16 @@ public class ListaCircular {
         this.tamanho = 0;
     }
 
-    public int getTamanho() {
-        return tamanho;
-    }
-
     public void insereInicio(int i) {
         No novoNo = new No(i);
         if (tamanho == 0) {
             cabeca = novoNo;
             cauda = novoNo;
-            cauda.setProx(cabeca); // Circularidade
+            cauda.setProx(cabeca);
         } else {
             novoNo.setProx(cabeca);
             cabeca = novoNo;
-            cauda.setProx(cabeca); // Circularidade
+            cauda.setProx(cabeca);
         }
         tamanho++;
     }
@@ -43,7 +41,7 @@ public class ListaCircular {
         return false;
     }
 
-    public int buscaIndice(int indice) {
+    public Object buscaIndice(int indice) {
         if (indice < 0 || indice >= tamanho) {
             throw new IndexOutOfBoundsException("Índice inválido.");
         }
@@ -60,11 +58,11 @@ public class ListaCircular {
         if (tamanho == 0) {
             cabeca = novoNo;
             cauda = novoNo;
-            cauda.setProx(cabeca); // Circularidade
+            cauda.setProx(cabeca);
         } else {
             cauda.setProx(novoNo);
             cauda = novoNo;
-            cauda.setProx(cabeca); // Circularidade
+            cauda.setProx(cabeca);
         }
         tamanho++;
     }
@@ -79,7 +77,7 @@ public class ListaCircular {
             cauda = null;
         } else {
             cabeca = cabeca.getProx();
-            cauda.setProx(cabeca); // Manter circularidade
+            cauda.setProx(cabeca);
         }
         tamanho--;
     }
@@ -144,4 +142,5 @@ public class ListaCircular {
             tamanho++;
         }
     }
+
 }
