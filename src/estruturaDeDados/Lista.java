@@ -44,7 +44,7 @@ public class Lista {
             atual = atual.getProx();
             contador++;
         }
-        return -1; // Este ponto não será alcançado devido à verificação de índice.
+        return -1;
     }
 
     public void insereFim(int i) {

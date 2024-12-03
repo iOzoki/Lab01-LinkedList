@@ -57,32 +57,33 @@ public class ListaTest {
         assertFalse("Encontrado " + -1, e.buscaElemento(-1));
     }
 
-    //@Test
-    //public void testRemoveInicio() {
-    //    e.removeInicio();
-    //    e.insereInicio(0);
-    //    e.insereInicio(1);
-    //    e.insereInicio(2);
-    //    e.insereInicio(3);
-    //    assertEquals("Não encontrado " + 3, 3, e.buscaIndice(0));
-    //    e.removeInicio();
-    //    assertFalse("Encontrado " + 3, e.buscaElemento(3));
-    //    assertEquals("Inicio é " + 2, 2, e.buscaIndice(0));
-    //}
+//    @Test
+//    public void testRemoveInicio() {
+//        e.removeInicio();
+//        e.insereInicio(0);
+//        e.insereInicio(1);
+//        e.insereInicio(2);
+//        e.insereInicio(3);
+//        assertEquals("Não encontrado " + 3, 3, e.buscaIndice(0));
+//
+//        e.removeInicio();
+//        assertFalse("Encontrado " + 3, e.buscaElemento(3));
+//        assertEquals("Inicio é " + 2, 2, e.buscaIndice(0));
+//    }
 
-    //@Test
-    //public void testRemoveFim() {
-    //    e.removeFim();
-    //    e.insereInicio(0);
-    //    e.insereInicio(1);
-    //    e.insereInicio(2);
-    //    e.insereInicio(3);
-    //    assertEquals("Não encontrado " + 3, 3, e.buscaIndice(0));
-    //    e.removeFim();
-    //   assertFalse("Encontrado " + 0, e.buscaElemento(0));
-    //    assertTrue("Encontrado " + 3, e.buscaElemento(3));
-    //    assertEquals("O ultimo é zero " + 0, 0, e.buscaIndice(2));
-    //}
+//    @Test
+//    public void testRemoveFim() {
+//        e.removeFim();
+//        e.insereInicio(0);
+//        e.insereInicio(1);
+//        e.insereInicio(2);
+//        e.insereInicio(3);
+//        assertEquals("Não encontrado " + 3, 3, e.buscaIndice(0));
+//        e.removeFim();
+//        assertFalse("Encontrado " + 0, e.buscaElemento(0));
+//        assertTrue("Encontrado " + 3, e.buscaElemento(3));
+//        assertEquals("O ultimo é zero " + 0, 0, e.buscaIndice(2));
+//    }
 
     @Test
     public void testRemoveInserePosicao() {
